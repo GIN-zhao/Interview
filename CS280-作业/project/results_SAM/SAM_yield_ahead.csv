@@ -1,0 +1,111 @@
+,Cause,Effect,Score
+0,perception complexity,ignore priority,41.203125
+1,perception complexity,non-caution predictor,44.272865295410156
+2,perception complexity,prediction error,75.22810363769531
+3,perception complexity,ignore decision,47.690765380859375
+4,perception complexity,follow decision,55.165138244628906
+5,perception complexity,yield decision,38.309059143066406
+6,perception complexity,overtake decision,26.290342330932617
+7,perception complexity,planning error,48.72865295410156
+8,perception complexity,execution error,55.239280700683594
+9,perception complexity,accident,28.73836326599121
+10,ignore priority,perception complexity,41.10352325439453
+11,ignore priority,non-caution predictor,48.98456954956055
+12,ignore priority,prediction error,62.654457092285156
+13,ignore priority,ignore decision,66.6924819946289
+14,ignore priority,follow decision,42.02947235107422
+15,ignore priority,yield decision,32.57069778442383
+16,ignore priority,overtake decision,44.64832305908203
+17,ignore priority,planning error,25.36086082458496
+18,ignore priority,execution error,31.35456657409668
+19,ignore priority,accident,44.64888000488281
+20,non-caution predictor,perception complexity,0.17579028010368347
+21,non-caution predictor,ignore priority,0.17664045095443726
+22,non-caution predictor,prediction error,0.17884904146194458
+23,non-caution predictor,ignore decision,0.2625172734260559
+24,non-caution predictor,follow decision,0.2461971640586853
+25,non-caution predictor,yield decision,0.17904624342918396
+26,non-caution predictor,overtake decision,0.18332627415657043
+27,non-caution predictor,planning error,0.17598626017570496
+28,non-caution predictor,execution error,0.18580277264118195
+29,non-caution predictor,accident,0.19353270530700684
+30,prediction error,perception complexity,95.98424530029297
+31,prediction error,ignore priority,39.4559211730957
+32,prediction error,non-caution predictor,32.03558349609375
+33,prediction error,ignore decision,25.522075653076172
+34,prediction error,follow decision,28.9669246673584
+35,prediction error,yield decision,49.364112854003906
+36,prediction error,overtake decision,26.301498413085938
+37,prediction error,planning error,35.20968246459961
+38,prediction error,execution error,30.08570098876953
+39,prediction error,accident,30.743812561035156
+40,ignore decision,perception complexity,0.18094003200531006
+41,ignore decision,ignore priority,0.17617301642894745
+42,ignore decision,non-caution predictor,0.24848346412181854
+43,ignore decision,prediction error,0.1780214011669159
+44,ignore decision,follow decision,0.24080869555473328
+45,ignore decision,yield decision,0.17382001876831055
+46,ignore decision,overtake decision,0.18443764746189117
+47,ignore decision,planning error,0.16396230459213257
+48,ignore decision,execution error,0.17075401544570923
+49,ignore decision,accident,0.20269300043582916
+50,follow decision,perception complexity,0.1656254678964615
+51,follow decision,ignore priority,0.16480422019958496
+52,follow decision,non-caution predictor,0.25092458724975586
+53,follow decision,prediction error,0.18033982813358307
+54,follow decision,ignore decision,0.27568551898002625
+55,follow decision,yield decision,0.18287289142608643
+56,follow decision,overtake decision,0.18659475445747375
+57,follow decision,planning error,0.18152111768722534
+58,follow decision,execution error,0.17685429751873016
+59,follow decision,accident,0.18490391969680786
+60,yield decision,perception complexity,26.735855102539062
+61,yield decision,ignore priority,26.03748893737793
+62,yield decision,non-caution predictor,68.387939453125
+63,yield decision,prediction error,32.83085632324219
+64,yield decision,ignore decision,60.71352005004883
+65,yield decision,follow decision,77.49456787109375
+66,yield decision,overtake decision,35.57571792602539
+67,yield decision,planning error,36.363807678222656
+68,yield decision,execution error,30.52781105041504
+69,yield decision,accident,44.39753723144531
+70,overtake decision,perception complexity,30.49703598022461
+71,overtake decision,ignore priority,32.49486541748047
+72,overtake decision,non-caution predictor,24.51104164123535
+73,overtake decision,prediction error,26.785947799682617
+74,overtake decision,ignore decision,19.29472541809082
+75,overtake decision,follow decision,21.798139572143555
+76,overtake decision,yield decision,39.14591598510742
+77,overtake decision,planning error,42.08319854736328
+78,overtake decision,execution error,32.186668395996094
+79,overtake decision,accident,40.28632354736328
+80,planning error,perception complexity,28.302927017211914
+81,planning error,ignore priority,49.8121337890625
+82,planning error,non-caution predictor,16.217859268188477
+83,planning error,prediction error,34.840450286865234
+84,planning error,ignore decision,21.309858322143555
+85,planning error,follow decision,47.159908294677734
+86,planning error,yield decision,36.70794677734375
+87,planning error,overtake decision,27.06256103515625
+88,planning error,execution error,60.23788070678711
+89,planning error,accident,31.62647819519043
+90,execution error,perception complexity,46.52813720703125
+91,execution error,ignore priority,29.742631912231445
+92,execution error,non-caution predictor,18.98586082458496
+93,execution error,prediction error,32.97883987426758
+94,execution error,ignore decision,45.7087287902832
+95,execution error,follow decision,24.381298065185547
+96,execution error,yield decision,34.496429443359375
+97,execution error,overtake decision,30.568119049072266
+98,execution error,planning error,61.6280517578125
+99,execution error,accident,34.01365280151367
+100,accident,perception complexity,29.363628387451172
+101,accident,ignore priority,29.03860855102539
+102,accident,non-caution predictor,16.10955238342285
+103,accident,prediction error,28.139583587646484
+104,accident,ignore decision,13.86827564239502
+105,accident,follow decision,5.14967155456543
+106,accident,yield decision,28.761455535888672
+107,accident,overtake decision,32.3201789855957
+108,accident,planning error,32.95732498168945
+109,accident,execution error,30.81792449951172

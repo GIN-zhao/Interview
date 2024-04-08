@@ -1,0 +1,17 @@
+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
+
+
+
+TeamViewer:
+
+ID: 1 190 147 706
+PW: aes852
+
+
+授权成功
+您的免费API Key为: sk-Q7B0N0Hg1Sz6MZPIcpMzeuTzlBFeprcgCeCgMAGwMSGPThJE
+请妥善保管，不要泄露给他人，如泄漏造成滥用可能会导致Key被封禁
+
+weixin:
+
+secret :  bdc69b6d17eaef75ebe5d0124182500f

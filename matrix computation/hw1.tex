@@ -1,0 +1,261 @@
+\documentclass[english,onecolumn]{IEEEtran}
+
+\usepackage[T1]{fontenc}
+% \usepackage[latin9]{luainputenc}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose}
+\usepackage{babel}
+\usepackage{extarrows}
+\usepackage[colorlinks]{hyperref}
+\usepackage{listings}
+\usepackage{color,xcolor}
+\usepackage{graphicx}
+\usepackage{subfigure} 
+\usepackage{amsthm,amssymb,amsfonts}
+\usepackage{textcomp}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{mathtools}
+
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+\topmargin            -18.0mm
+\textheight           226.0mm
+\oddsidemargin      -4.0mm
+\textwidth            166.0mm
+\def\baselinestretch{1.5}
+
+\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+
+\newcommand{\mspan}{\mathop{\mathrm{span}}}
+\newcommand{\madj}{\mathop{\mathrm{adj}}}
+\newcommand{\trace}{\mathop{\mathrm{trace}}}
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert} % define a "\norm" macro
+\DeclarePairedDelimiter{\pnorm}{\lVert}{\rVert_p}
+
+\begin{document}
+
+\begin{center}
+	\textbf{\LARGE{SI231B: Matrix Computations, 2024 Spring}}\\
+	{\Large Homework Set \#1}\\
+	% \texttt{Prof. Jie Lu}
+\par\end{center}
+
+\noindent
+\rule{\linewidth}{0.4pt}
+% \noindent
+% \rule{\linewidth}{0.4pt}
+{\bf Acknowledgements:}
+\begin{enumerate}
+	\item Deadline: {\bf \textcolor{red}{2024-03-21 23:59:59}}
+    \item You have 5 ``free days'' in total for late submission.
+	% \item \textbf{Late Policy details} can be found on piazza.
+	\item Submit your homework in \textbf{Homework 1} on \textbf{Gradescope}. Entry Code: \textbf{NPK2YD}. Make sure that you have correctly select pages for each problem. If not, you probably will get 0 point.
+	% \item No handwritten homework is accepted. You need to write \LaTeX. (If you have difficulties in using \LaTeX, you are allowed to use \textbf{MS Word or Pages} for the first and the second homework to accommodate yourself.)
+	% \item Use the given template and give your solution in English. Solution in Chinese is not allowed.
+	% \item Your homework should be uploaded in the PDF format, and the naming format of the file is not specified.
+\end{enumerate}
+\rule{\linewidth}{0.4pt}
+
+\noindent \textbf{Problem 1. (Range Space and Rank)} (\textcolor{blue}{15 points}) \\
+Given $\mathbf{A}\in\mathbb{R}^{m\times k}$
+and $\mathbf{B}\in\mathbb{R}^{k\times n}$, prove that
+\begin{enumerate}
+\item $\text{dim }\mathcal{R}(\mathbf{A}\mathbf{B})\leq\text{dim }\mathcal{R}(\mathbf{A})$. (\textcolor{blue}{3 points})
+\item $\text{dim }\mathcal{R}(\mathbf{A}\mathbf{B})=\text{dim }\mathcal{R}(\mathbf{A})$
+if $\mathbf{B}$ has full row rank. (\textcolor{blue}{3 points})
+\item Based on the above two results, show that
+\[
+\mathsf{rank}(\mathbf{A}\mathbf{B})\leq\min\{\mathsf{rank}(\mathbf{A}),\mathsf{rank}(\mathbf{B})\}
+\]
+and the equality attains if the columns of $\mathbf{A}$ are linearly
+independent or the rows of $\mathbf{B}$ are linearly independent. (\textcolor{blue}{5 points})
+
+\noindent \emph{Hint:} It suffices to show $\text{dim }\mathcal{R}(\mathbf{A}\mathbf{B})\leq\text{dim }\mathcal{R}(\mathbf{A})$
+and $\text{dim }\mathcal{R}(\mathbf{B}^{T}\mathbf{A}^{T})\leq\text{dim }\mathcal{R}(\mathbf{B}^{T})$.
+\item $\text{dim }\mathcal{R}(\mathbf{A}\mathbf{B})=k$ if $\mathbf{A}$
+has full column rank and $\mathbf{B}$ has full row rank. (\textcolor{blue}{4 points})
+\end{enumerate}
+\newpage
+
+\noindent \textbf{Problem 2. (Vector Norms)} (\textcolor{blue}{15 points}) \\ Recall that we talked
+about the vector norm in class. For any $\mathbf{x}=\left[x_{1},\dots,x_{n}\right]^{\top}\in\mathbb{R}^{n}$,
+please prove the following arguments:
+\begin{enumerate}
+\item The maximum norm is defined to be 
+\[
+\left\Vert \mathbf{x}\right\Vert _{\infty}=\lim_{p\rightarrow\infty}\left(\sum_{i=1}^{n}\left\vert x_{i}\right\vert ^{p}\right)^{\frac{1}{p}}.
+\]
+Show that
+\[
+\left\Vert \mathbf{x}\right\Vert _{\infty}=\max_{i=1,\dots,n}\left\vert x_{i}\right\vert .
+\] (\textcolor{blue}{5 points})
+\item Verify the following inequality chain
+\[
+\left\Vert \mathbf{x}\right\Vert _{\infty}\le\left\Vert \mathbf{x}\right\Vert _{2}\le\left\Vert \mathbf{x}\right\Vert _{1}\le\sqrt{n}\left\Vert \mathbf{x}\right\Vert _{2}\le n\left\Vert \mathbf{x}\right\Vert _{\infty}.
+\] (\textcolor{blue}{5 points})
+\item Show that
+\[
+\left\Vert \mathbf{x}\right\Vert _{1}\left\Vert \mathbf{x}\right\Vert _{\infty}\le\frac{1+\sqrt{n}}{2}\left\Vert \mathbf{x}\right\Vert _{2}^{2}.
+\] (\textcolor{blue}{5 points})
+\end{enumerate}
+
+\newpage
+\noindent\textbf{Problem 3. (Direct Sum of Subspaces}) (\textcolor{blue}{20 points}) \\
+A vector space $V$ is the \emph{(internal) direct sum} of a family $\mathcal{F}=\{S_1, \cdots, S_n\}$ of subspaces of $V$, written $V=\oplus_{i=1}^n{S_i} = S_1\oplus \cdots\oplus S_n$ if the following two conditions hold: 
+\begin{itemize}
+    \item $V$ is the sum of the family $\mathcal{F}$: $V = \sum_{i=1}^{n}S_i$,
+    \item for each $i$, $S_i\cap\left( \sum_{j\neq i}S_j \right) = \{0\}$.
+\end{itemize}
+For example, a vector space $V$ is the direct sum of a subspace $S$ and its orthogonal complement $S^{\perp}$: $V=S\oplus S^\perp$. $\mathbb{R}^3$ is the direct sum of any three non-coplanar lines. 
+
+
+\begin{enumerate}
+    \item Determine which of the following sums are direct sums. Briefly explain why.
+    \begin{enumerate}
+        \item $\mathbb{R}^3$ is the sum of any two distinct planes. (\textcolor{blue}{1 point})
+        \item $\mathbb{R}^{n\times n}$ is the sum of the subspace of upper-triangular matrices and the subspace of lower-triangular matrices. (\textcolor{blue}{2 points})
+        \item $\mathbb{R}^{n\times n}$ is the sum of the subspace of symmetric matrices and the subspace of skew-symmetric matrices. (A square matrix $\mathbf{A}$ is called skew-symmetric if $\mathbf{A}=-\mathbf{A}^T$.) (\textcolor{blue}{2 points})
+    \end{enumerate}
+
+    \item Let $\mathcal{F}=\{S_1, \cdots, S_n\}$ be a family of distinct subspaces of a finite-dimensional vector space $V$ such that $V=\sum_{i=1}^{n}S_i$. Prove that the following statements are equivalent:
+    \begin{enumerate}
+        \item \textbf{(Independence of the family)} For each $i$, $S_i\cap\left(\sum_{j\neq i}S_j\right) = \{0\}$.
+        \item \textbf{(Uniqueness of expression for 0)} The zero vector 0 cannot be written as a sum of nonzero vectors from distinct subspaces of $\mathcal{F}$.
+        \item \textbf{(Uniqueness of expression)} Every nonzero $v\in V$ has a unique, except for order of terms, expression as a sum $v=s_1+\cdots+s_n$ of nonzero vectors from distinct subspaces in $\mathcal F$.
+    \end{enumerate}
+    (So a sum $V=\sum_{i=1}^{n}S_i$ is direct if and only if any one of the above statements holds.)
+
+    \textit{Hint: to prove the equivalence, you could show that, for example, a) implies b) and b) implies c) and c) implies a).} (\textcolor{blue}{15 points})
+\end{enumerate}
+
+
+\newpage
+\noindent\textbf{Problem 4. (Grassmann Formula)} (\textcolor{blue}{10 points})\\
+Let $S$ and $T$ be subspaces of a finite-dimensional vector space $V$. Please prove the following formula 
+$$
+\dim(S) + \dim(T) = \dim(S+T) + \dim(S\cap T).
+$$
+In particular, if $T$ is any complement of $S$ in $V$, then
+\begin{align*}
+    \dim(S) + \dim(T) = \dim(V),
+\end{align*}
+that is, the dimensions of vector spaces are additive in a direct sum:
+\begin{align*}
+    \dim(S\oplus T) = \dim(S) + \dim(T).
+\end{align*}
+
+\noindent\textit{Hint: to prove the first formula, you might start by considering a basis for $S\cap T$, and extending it to bases for $S$ and $T$ separately. With these bases, then consider how to construct a basis for $S+T$ and prove that it is a basis indeed.}
+\newpage
+
+\noindent \textbf{Problem 5. (Block Matrix Computations) } (\textcolor{blue}{20 points}) \\ Let $\mathbf{S}$
+as the sample covariance matrix of $n$ independent observed samples
+of a $p$-variate Gaussian random variable with zero mean and covariance
+matrix $\bm{\Sigma}\in\mathbb{R}^{p\times p}$. Denote $\sigma_{ij}$
+as the $ij$-th entry in $\bm{\Sigma}$. Suppose four elements $\left\{ \sigma_{11},\sigma_{12},\sigma_{21},\sigma_{22}\right\} $
+in $\bm{\Sigma}$ are missing as
+\[
+\bm{\Sigma}=\left[\begin{array}{ccc}
+? & ? & \cdots\\
+? & ? & \cdots\\
+\vdots & \vdots & \ddots
+\end{array}\right].
+\]
+Our goal is to estimate the missing entries based on the observed
+ones in $\boldsymbol{\Sigma}$ and the sample covariance matrix $\mathbf{S}$.
+Given
+\[
+\bm{\Sigma}=\left[\begin{array}{cc}
+\boldsymbol{\Sigma}_{AA} & \boldsymbol{\Sigma}_{AB}\\
+\boldsymbol{\Sigma}_{AB} & \boldsymbol{\Sigma}_{BB}
+\end{array}\right],\quad\text{with}\quad\boldsymbol{\Sigma}_{AA}=\left[\begin{array}{cc}
+\sigma_{11} & \sigma_{12}\\
+\sigma_{21} & \sigma_{22}
+\end{array}\right].
+\]
+We are interested in the following Gaussian maximum likelihood estimation
+problem for $\boldsymbol{\Sigma}_{AA}$:
+\begin{equation}
+\begin{aligned} & \underset{\boldsymbol{\Sigma}_{AA}}{\min} &  & \mathrm{tr}\left(\mathbf{S}\bm{\Sigma}^{-1}\right)+\log\det\left(\bm{\Sigma}\right).\end{aligned}
+\label{eq:nonnegative-CE}
+\end{equation}
+
+\begin{enumerate}
+\item If $\boldsymbol{\Sigma}_{AA}$ is invertible, it easy to verify that
+the above $2\times2$ partitioned $\bm{\Sigma}$ has the following
+factorization form
+\begin{equation}
+\bm{\Sigma}=\left[\begin{array}{cc}
+\mathbf{I} & \mathbf{0}\\
+\boldsymbol{\Sigma}_{BA}\boldsymbol{\Sigma}_{AA}^{-1} & \mathbf{I}
+\end{array}\right]\left[\begin{array}{cc}
+\boldsymbol{\Sigma}_{AA} & \mathbf{0}\\
+\mathbf{0} & \bm{\Sigma}_{BB}-\bm{\Sigma}_{BA}\bm{\Sigma}_{AA}^{-1}\bm{\Sigma}_{AB}
+\end{array}\right]\left[\begin{array}{cc}
+\mathbf{I} & \boldsymbol{\Sigma}_{AA}^{-1}\boldsymbol{\Sigma}_{AB}\\
+\mathbf{0} & \mathbf{I}
+\end{array}\right].\label{eq:factorize}
+\end{equation}
+(Note: $\bm{\Sigma}_{BB}-\bm{\Sigma}_{BA}\bm{\Sigma}_{AA}^{-1}\bm{\Sigma}_{AB}$
+is named \emph{Schur complement} of $\boldsymbol{\Sigma}_{AA}$ in
+the matrix literature.) 
+\begin{enumerate}
+\item Based on the above factorization result, compute the inverse and determinant
+of $\boldsymbol{\Sigma}$. (\textcolor{blue}{5 points})
+\item Write the objective function in \eqref{eq:nonnegative-CE} explicitly
+as a function of variable $\boldsymbol{\Sigma}_{AA}$. (\textcolor{blue}{5 points})
+\end{enumerate}
+\emph{Hint: }You may need to partition $\mathbf{S}$ as
+\[
+\mathbf{S}=\left[\begin{array}{cc}
+\mathbf{S}_{AA} & \mathbf{S}_{AB}\\
+\mathbf{S}_{BA} & \mathbf{S}_{BB}
+\end{array}\right],
+\]
+where $\mathbf{S}_{AA}$, $\mathbf{S}_{AB}$, $\mathbf{S}_{BA}$ and
+$\mathbf{S}_{BB}$ take the same dimension as $\boldsymbol{\Sigma}_{AA}$,
+$\boldsymbol{\Sigma}_{AB}$, $\boldsymbol{\Sigma}_{BA}$, and $\boldsymbol{\Sigma}_{BB}$,
+respectively.
+\item Directly solving for $\boldsymbol{\Sigma}_{AA}$ based on the objective
+function derived above is difficult, one alternative way is to solve for an intermediate
+variable $\tilde{\bm{\Sigma}}_{AA}=\bm{\Sigma}_{AA}-\bm{\Sigma}_{AB}\bm{\Sigma}_{BB}^{-1}\bm{\Sigma}_{BA}$.
+\begin{enumerate}
+\item Mimicking the form of \eqref{eq:factorize}, decompose $\bm{\Sigma}$
+into the product of three matrices, where $\tilde{\bm{\Sigma}}_{AA}$ shows up. (\textcolor{blue}{4 points})
+\item Try to derive the objective function in terms of $\tilde{\bm{\Sigma}}_{AA}$
+and discuss why the resulting problem is easier than the one you derived
+in 1.b). (\textcolor{blue}{6 points})
+\end{enumerate}
+\emph{Hint: $\tilde{\bm{\Sigma}}_{AA}$ }is the Schur complement of
+$\boldsymbol{\Sigma}_{BB}$. Deriving the objective function in terms
+of $\tilde{\bm{\Sigma}}_{AA}$ may require a similar proof as that
+in the previous question.
+\end{enumerate}
+
+
+\newpage
+\noindent\textbf{Problem 6. (Determinant)} (\textcolor{blue}{20 points}) \\
+Consider the following matrices 
+\begin{align*}
+    &\mathbf{A} = 
+    \begin{bmatrix}
+        2 & 1 & 1 \\
+        6 & 2 & 1 \\
+        -2& 2 & 1  
+    \end{bmatrix},
+    & &\mathbf{B} = 
+    \begin{bmatrix}
+        0 & 0 &-2 & 3\\
+        1 & 0 & 1 & 2\\
+        -1& 1 & 2 & 1\\
+        0 & 2 &-3 & 0 
+    \end{bmatrix}.
+\end{align*}
+\begin{enumerate}
+    \item  Use a cofactor expansion to evaluate the determinants $\det(\mathbf{A})$ and $\det(\mathbf{B})$. (\textcolor{blue}{10 points})
+    \item Use determinants and adjugate matrices to compute the inverses $\mathbf{A}^{-1}$ and $\mathbf{B}^{-1}$. (\textcolor{blue}{10 points})
+\end{enumerate}
+
+
+\end{document}

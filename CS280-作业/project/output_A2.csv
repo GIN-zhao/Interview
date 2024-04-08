@@ -1,0 +1,17 @@
+,Cause,Effect,Score
+0,perception complexity,prediction error,0.8543997745566557
+1,perception complexity,planning error,0.3250896303057741
+2,prediction error,ignore decision,0.985286727661041
+3,prediction error,follow decision,0.004536932554352073
+4,prediction error,overtake decision,0.9119304348577711
+5,prediction error,execution error,0.1672116258163187
+6,prediction error,accident,0.9825363220273092
+7,planning error,ignore decision,0.9977863116667856
+8,planning error,execution error,0.7504228762508461
+9,follow decision,non-caution predictor,0.9853499766722041
+10,follow decision,execution error,0.3538266674355732
+11,follow decision,accident,0.9729559330448546
+12,ignore priority,ignore decision,0.9947278335592931
+13,ignore priority,follow decision,0.5401625953468345
+14,ignore priority,execution error,0.39092364125538787
+15,yield decision,follow decision,0.25476117962997047
